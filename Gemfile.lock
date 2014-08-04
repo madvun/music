@@ -35,6 +35,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.7)
     blockenspiel (0.4.5)
     builder (3.2.2)
     capistrano (2.15.5)
@@ -200,6 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capistrano
   capistrano-ext
   capistrano-helpers

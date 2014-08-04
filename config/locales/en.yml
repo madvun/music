@@ -20,4 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  create_account: "Create my account"
+  helpers:
+    label:
+      user:
+        first_name: "First Name"
+        last_name: "Last Name"
+        
+

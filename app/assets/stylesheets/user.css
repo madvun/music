@@ -1,0 +1,8 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+.new_user {  width: 325px;  margin: auto;}
+.new_user div {height: 25px;}
+.new_user div label { float: left; line-height: 25px;}
+.new_user div input { float: right}
