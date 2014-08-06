@@ -24,6 +24,8 @@ class UsersController < ApplicationController
     recovery_user_with_key(params[:key])
     if @user.update_attributes(user_params)
       flash[:notice] = "Profile updated"
+      sign_in @user
+      recovery_delete(params[:key])
       redirect_to :root
     else
       flash[:notice] = "error"

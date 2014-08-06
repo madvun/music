@@ -14,4 +14,7 @@ module RecoveriesHelper
   def has_key?
     !params[:key].nil?    
   end
+  def recovery_delete_key(key)
+    Recovery.find_by(key: key).destroy
+  end
 end
