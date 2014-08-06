@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :signed_out_user, only: [:edit_password, :new]
   def new
     @user=User.new
   end

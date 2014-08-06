@@ -28,4 +28,7 @@ module SessionsHelper
   def signed_in_user
     redirect_to signin_url, notice: "Please sign in." unless signed_in?
   end
+  def signed_out_user
+    redirect_to (root_path), notice: "Please sign out." unless !signed_in?
+  end
 end
