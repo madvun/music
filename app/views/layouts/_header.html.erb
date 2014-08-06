@@ -1,9 +1,11 @@
 <p>
+  <%= link_to "Home", :root %>
   <% if !signed_in? %>
     <%= link_to "Sign In", signin_path %>
     <%= link_to "Registe", new_user_path %>
     <%= link_to "Reset password", reset_new_path %>
   <% else %>
-    <%= link_to "SIgn Out", signout_path, method: 'delete' %>
+    <%= link_to "Update Profile", edit_user_path(current_user.id) %>
+    <%= link_to "SIgn Out", signout_path, method: 'delete',style: "float:right;" %>
   <% end %>
 </p>

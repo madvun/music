@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :password_last
   has_secure_password
   has_one :recovery
   before_save { |user| user.email = email.downcase }

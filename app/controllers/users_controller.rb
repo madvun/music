@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :signed_out_user, only: [:edit_password, :new]
+  before_filter :signed_out_user, only: [:edit_password, :update_password, :new]
+  before_filter :correct_user, only: [:edit, :update]
   def new
     @user=User.new
   end
@@ -31,6 +32,24 @@ class UsersController < ApplicationController
     else
       flash[:notice] = "error"
       render 'users/edit_password'
+    end
+  end
+  def edit
+    @user=User.find(params[:id])
+  end
+  def update
+    @user=User.find(params[:id])
+    if @user.authenticate(params[:user][:password_last])
+      if @user.update_attributes(user_params)
+        flash[:notice] = "Profile updated"
+        redirect_to :root
+      else
+        flash[:notice] = @user.errors.count.to_s+" errors"
+        render 'users/edit'
+      end
+    else
+      flash[:notice] = "wrong password"
+      render 'users/edit'
     end
   end
   private

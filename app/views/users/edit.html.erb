@@ -1,0 +1,38 @@
+<% provide(:title, "Update profile")%>
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+  <%= form_for @user do |f| %>
+    <%#= render 'shared/error_messages', object: f.object %>
+    <div>
+      <%= f.label  :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div>
+      <%= f.label  :last_name %>
+      <%= f.text_field :last_name%>
+    </div>
+    <div>
+      <%= f.label  :nickname %>
+      <%= f.text_field :nickname %>
+    </div>
+    <div>
+      <%= f.label  :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div>
+      <%= f.label  :password_last %>
+      <%= f.password_field :password_last %>
+    </div>
+    <div>
+      <%= f.label  :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <p>
+      <%= f.submit "ok" %>
+    </p>
+  <% end %>
