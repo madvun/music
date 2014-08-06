@@ -10,7 +10,8 @@ class RecoveriesController < ApplicationController
       @recovery=Recovery.new(user:recovery_user(params[:recovery][:email]))
       @recovery.create_key
       @recovery.save
-      flash[:notice]="check ur mail"
+      UserMailer.change_password_link(@recovery.user,@recovery).deliver
+      flash[:notice]=@recovery.user.email
       redirect_to :root
       #отправить емайл с ключем
     end      
