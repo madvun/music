@@ -12,6 +12,24 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  def edit_password
+    if !recovery_user_with_key?(params[:key])
+      recovery_user_with_key(params[:key])
+    else
+      flash[:notice] = "Sorry, try again"
+      redirect_to :root
+    end   
+  end
+  def update_password
+    recovery_user_with_key(params[:key])
+    if @user.update_attributes(user_params)
+      flash[:notice] = "Profile updated"
+      redirect_to :root
+    else
+      flash[:notice] = "error"
+      render 'users/edit_password'
+    end
+  end
   private
   def user_params
     params.require(:user).permit(:first_name, :last_name, :nickname, :email, :password, :password_confirmation)

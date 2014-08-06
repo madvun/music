@@ -1,0 +1,11 @@
+<% provide(:title, "Recovery")%>
+<%= form_for(:recovery, url: recoveries_path) do |f| %>
+  <%#= render 'shared/error_messages', object: f.object %>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <p>
+    <%= f.submit t('create_account'), class: "btn btn-large btn-primary" %>
+  </p>
+<% end %>

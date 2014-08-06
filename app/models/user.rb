@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_secure_password
-
+  has_one :recovery
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
@@ -13,13 +13,17 @@ class User < ActiveRecord::Base
   validates :email, presence: true,
             format: { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false }
-
+  VALID_PASS_REGEX = /\A^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$+\z/i
   validates :password, presence: true,
-             length: { minimum: 6 }
+            format: { with: VALID_PASS_REGEX },
+            length: { minimum: 6 }
 
   validates :password_confirmation, presence: true
+
   private
-  def create_remember_token
-    self.remember_token=SecureRandom.urlsafe_base64
-  end
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 end
+
