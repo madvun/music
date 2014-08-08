@@ -2,3 +2,7 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+body {padding-top: 40px;}
+.header_wrap { height: 30px;width: 100%;position: fixed;background-color: white;z-index: 99999; top: 0;}
+.header {width: 940px;margin: auto;}
+.index_wrap {width: 940px;margin: auto;}
