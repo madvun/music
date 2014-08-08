@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
   root to: 'static_pages#home'
-  resources :users do
-    patch :update_password
-  end
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :recoveries, only: [:new, :create]
+
   match '/signin',  to: 'sessions#new', via: [:get]
   match '/signout',  to: 'sessions#destroy', via:[:delete]
   match '/reset', to: 'users#edit_password', via: [:get]
   match '/reset/new', to: 'recoveries#new', via: [:get]
+
+  match 'reg', to: 'users#new',via: [:get], as: 'user_new'
+  post  'reg', to: 'users#create', as: 'user_create'
+
+  match '/song/new', to: 'songs#new', via: [:get], as: 'song_new'
+  post  '/song/new', to: 'songs#create', as: 'song_create'
+
+  match '/profile/edit', to: 'users#edit', via: [:get], as: 'user_edit'
+  patch '/profile/edit', to: 'users#update', as: 'user_update'
+
+  match '/songs', to: 'songs#index', via: [:get], as: 'songs_index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

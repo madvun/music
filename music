@@ -1,0 +1,3 @@
+@a={"name"=>#<ActionDispatch::Http::UploadedFile:0x00000003e38868,
+ @original_filename="m.mp3",
+ @content_type="audio/mp3"}

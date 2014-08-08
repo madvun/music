@@ -1,7 +1,4 @@
 <% provide(:title, "Recovery")%>
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
 <%= form_for(:recovery, url: recoveries_path) do |f| %>
   <%#= render 'shared/error_messages', object: f.object %>
   <div>

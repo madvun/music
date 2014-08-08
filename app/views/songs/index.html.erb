@@ -1,0 +1,10 @@
+<div>
+  <div>
+    <% @songs.each do |song| %>
+      <div>
+        <%= song.name %>
+        <%= audio_tag(song.file, controls: true) %>
+      </div>
+    <% end %>
+  </div>
+</div>

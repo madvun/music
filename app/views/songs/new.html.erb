@@ -1,8 +1,8 @@
 <% provide(:title, "Load song")%>
-<%= form_for(@song) do |f| %>
+<%= form_for([@user, @user.songs.build], url: song_create_path) do |f| %>
   <%#= render 'shared/error_messages', object: f.object %>
   <div>
-    <%= f.file_field :name %>
+    <%= f.file_field :file %>
   </div>
   <p>
     <%= f.submit t('create_account'), class: "btn btn-large btn-primary" %>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :signed_out_user, only: [:edit_password, :update_password, :new]
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :signed_in_user, only: [:edit, :update]
   def new
     @user=User.new
   end
@@ -35,10 +35,10 @@ class UsersController < ApplicationController
     end
   end
   def edit
-    @user=User.find(params[:id])
+    @user=current_user
   end
   def update
-    @user=User.find(params[:id])
+    @user=current_user
     if @user.authenticate(params[:user][:password_last])
       if @user.update_attributes(user_params)
         flash[:notice] = "Profile updated"

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :password_last
   has_secure_password
   has_one :recovery
+  has_many :songs
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
