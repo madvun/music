@@ -21,6 +21,7 @@
 
 en:
   create_account: "Create my account"
+  create_song: "Upload this"
   helpers:
     label:
       user:
