@@ -48,6 +48,6 @@
   $(document).ready(function(){
     $('#player').attr('src','<%= @songs.last.file.url%>')
     $('#s_v_c').css('width',ma.volume*100+'%')
-    display_time(ma.currentTime)
+    display_time_ok(ma.currentTime)
   });
 </script>

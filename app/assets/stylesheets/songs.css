@@ -16,6 +16,7 @@
   background-color: green;
   margin-top: 7.5px;
   float: left;
+  cursor: pointer;
 }
 #s_l_c {
   border-radius: 0px 6px 6px 0px;
@@ -33,6 +34,7 @@
   margin-right: -5px;
 }
 #s_v {
+  cursor: pointer;
   margin-left: 18px;
   height: 5px;
   width: 80px;
@@ -61,6 +63,11 @@
   margin-top: 10px;
   float: left;
   margin-left: 10px;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
 }
 #s_c {
   height: 40px;
@@ -69,6 +76,7 @@
   margin-left: 10px;
 }
 #s_c_pl,#s_c_pa,#s_c_st,#s_c_pr,#s_c_ne {
+  cursor: pointer;
   font-size: 7px;
   float: left;
   height: 20px;
@@ -76,8 +84,4 @@
   background-color: green;
   margin-left: 10px;
   margin-top: 10px;
-}
-#s_c_pl span,#s_c_pa span,#s_c_st span,#s_c_pr span,#s_c_ne span {
-  height: 20px;
-  width: 20px;
 }
