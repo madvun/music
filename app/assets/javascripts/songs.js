@@ -11,7 +11,7 @@ function d_lick(e,id_o,length,margin) {
   if (widX<0) { widX=0; $('#'+id_o+'_e')}
   else if (widX>100) {widX=100;}
   $('#'+id_o+'_c').css('width',widX+'%')
-  if (id_o=='s_l') {ma.currentTime=(ma.duration*widX)/100}
+  if (id_o=='s_l') {ma.currentTime=(ma.duration*widX)/100;show_timer();}
   if (id_o=='s_v') {ma.volume=widX/100}
 }
 function display_time_ok (time) {
