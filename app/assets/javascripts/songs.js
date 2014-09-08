@@ -44,7 +44,7 @@ $(document).ready(function(){
 });
 
 window.setInterval(function(){
-  if (ma.paused==false) {
+  if (document.getElementById('player').paused==false) {
     show_timer();
     $('#s_l_c').css('width',(ma.currentTime/ma.duration)*100+'%')
   }
