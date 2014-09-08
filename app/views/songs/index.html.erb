@@ -1,10 +1,53 @@
 <div class="index_wrap">
+  <div id="s_w">
+    <div id="s_n">
+      <%= @songs.last.name %>
+    </div>
+    <div id="s_t">
+    </div>
+    <div id="s_c_w">
+      <div id="s_l">
+        <div id="s_l_c">
+          <div id="s_l_c_e"></div>
+        </div>
+      </div>
+      <div id="s_v">
+        <div id="s_v_c">
+          <div id="s_v_c_e"></div>
+        </div>
+      </div>
+    </div>
+    <div id="s_c">
+      <div id="s_c_pl" onclick="ma.play()">
+        play
+      </div>
+      <div id="s_c_pa" onclick="ma.pause()">
+        pause
+      </div>
+      <div id="s_c_st" onclick="ma.pause();ma.currentTime=0;$('#s_l_c').css('width','0%') ">
+        stop
+      </div>
+      <div id="s_c_pr">
+      </div>
+      <div id="s_c_ne">
+        
+      </div>
+    </div>
+  </div>
   <div>
     <% @songs.each do |song| %>
       <div>
         <%= song.name %>
-        <%= audio_tag(song.file, controls: true) %>
       </div>
     <% end %>
   </div>
 </div>
+<%= audio_tag(id: "player") %>
+<script type="text/javascript">
+  var ma = document.getElementById('player');
+  $(document).ready(function(){
+    $('#player').attr('src','<%= @songs.last.file.url%>')
+    $('#s_v_c').css('width',ma.volume*100+'%')
+    display_time(ma.currentTime)
+  });
+</script>

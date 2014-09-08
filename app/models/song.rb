@@ -5,4 +5,11 @@ class Song < ActiveRecord::Base
             format: { with: VALID_MUSIC_REGEX }
   validates :file, presence: true
   mount_uploader :file, SongUploader
+  def to_hash
+    {
+      id: id,
+      file: file,
+      name: name
+    }
+  end
 end

@@ -22,6 +22,8 @@ class SongsController < ApplicationController
   end
   def index
     @songs=current_user.songs
+    @songs_json = Song.all.map(&:to_hash).to_json
+    
   end
 
   private
